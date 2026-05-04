@@ -1,4 +1,6 @@
 # Java-Project
-CSE-282.6 JAVA LAB
+Course Name: Introduction to Programming Language II (Java) Lab
 <br>
-Project title;
+Course Code:CSE282.6
+<br>
+Project title: 
