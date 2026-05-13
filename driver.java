@@ -4,7 +4,7 @@ public class driver
         Customer c =new Customer();
 
         c.setCustomerNumber(122);
-        c.setCustomerName("Saad");
+        c.setCustomerName("Shaad Bhuiyan Saad");
         c.setCustomerBalance(5000);
         c.Deposite(2000);
         c.withdraw(5000);
@@ -16,7 +16,7 @@ public class driver
       
 
         person e = new employee();
-        e.employeeName="ford";
+        e.employeeName="Sakib Khan";
         e.employeeRole="Accountant";
         e.display();
         
