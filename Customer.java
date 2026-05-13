@@ -49,8 +49,9 @@
 
     void display()
     {
-        System.err.println(getNumber());
-        System.out.println(getCustomerName());
-        System.out.println(getBalance());
+        System.err.println("Acount Number  : " +getNumber());
+        System.out.println("Accout Holder  : " + getCustomerName());
+        System.out.println("Balance        : " + getBalance());
+        System.err.println(" ");
     }
 }

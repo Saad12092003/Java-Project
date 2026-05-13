@@ -8,16 +8,18 @@ public class driver
         c.setCustomerBalance(5000);
         c.Deposite(2000);
         c.withdraw(5000);
-    
-       person x = c;
-       c.display();
+        c.display();
 
-        employee e = new employee();
+
+        System.err.println("  ");
+    
+      
+
+        person e = new employee();
         e.employeeName="ford";
         e.employeeRole="Accountant";
-        person y = e;
         e.display();
-
+        
 
       
 
