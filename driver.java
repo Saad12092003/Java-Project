@@ -1,14 +1,30 @@
 public class driver
 {
     public static void main(String[] args) {
-        person c =new Customer(101,"saad",5000);
+        Customer c =new Customer();
 
-        person e =new employee("Forid","Acountent");
-        
-        c.display();
+        c.setCustomerNumber(122);
+        c.setCustomerName("Saad");
+        c.setCustomerBalance(5000);
+        c.Deposite(2000);
+        c.withdraw(5000);
+    
+       person x = c;
+       c.display();
+
+        employee e = new employee();
+        e.employeeName="ford";
+        e.employeeRole="Accountant";
+        person y = e;
         e.display();
-       
-       
+
+
+      
+
+
+        
+
         
     }
+
 }

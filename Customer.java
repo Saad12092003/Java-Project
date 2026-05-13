@@ -1,17 +1,33 @@
 
-public class Customer extends person
+ class Customer extends person
 {
-    Customer(int AcountNumber,String AcountHolder,int balance)
+     void setCustomerNumber(int AccountNumber)
     {
-        super(AcountNumber,AcountHolder,balance);
+        this.AccountNumber=AccountNumber;
+    }
+    void setCustomerName(String AccountHolder)
+    {
+        this.AccountHolder=AccountHolder;
+    }
+    void setCustomerBalance(double balance)
+    {
+        this.balance=balance;
+    }
 
-    }
-    void display()
+    public int getNumber()
     {
-        System.out.println(AcountHolder);
-        System.out.println(balance);
+        return this.AccountNumber;
     }
-    void deposite(double amount)
+    public String getCustomerName()
+    {
+        return this.AccountHolder;
+    }
+    public double getBalance()
+    {
+        return this.balance;
+    }
+
+    void Deposite(double amount)
     {
         if(amount>=0)
         {
@@ -19,15 +35,22 @@ public class Customer extends person
         }
     }
 
-    void withdraw(double amount)
-    {
+
+    void withdraw(double amount){
         if(amount >0 && amount <=balance)
         {
             balance-=amount;
         }
         else
         {
-            System.out.println("Insuffient Balance");
+            System.out.println(" Balance");
         }
+    }
+
+    void display()
+    {
+        System.err.println(getNumber());
+        System.out.println(getCustomerName());
+        System.out.println(getBalance());
     }
 }
