@@ -1,4 +1,4 @@
-class Transaction {
+ class   Transaction {
 
     public void transfer(Customer sender, Customer receiver, double amount) {
 
