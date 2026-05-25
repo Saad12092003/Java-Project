@@ -6,18 +6,19 @@
       String employeeName;
       String employeeRole;
 
-       void setCustomerNumber(int AccountNumber)
-    {
-        this.AccountNumber=AccountNumber;
-    }
-    void setCustomerName(String AccountHolder)
-    {
-        this.AccountHolder=AccountHolder;
-    }
-    void setCustomerBalance(double balance)
-    {
-        this.balance=balance;
-    }
+       person(int  AccountNumber,String AccountHolder,double balance)
+       {
+          this.AccountNumber=AccountNumber;
+          this.AccountHolder=AccountHolder;
+          this.balance=balance;
+
+       }
+       person(String employeeName,String employeeRole)
+       {
+
+        this.employeeName=employeeName;
+        this.employeeRole=employeeRole;
+       }
 
     public int getNumber()
     {
@@ -30,6 +31,16 @@
     public double getBalance()
     {
         return this.balance;
+    }
+
+    void updateBalance(double amount)
+    {
+        balance += amount;
+    }
+
+     void deductBalance(double amount)
+    {
+        balance -= amount;
     }
 
      abstract void display();
