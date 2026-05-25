@@ -1,13 +1,24 @@
 public class driver
 {
     public static void main(String[] args) {
-        Customer c =new Customer();
+        Customer c =new Customer(100,"Saad",5000);
+       try{
+         c.Deposite(2000);
+       }
+       catch(InsufficientBalanceException e)
+       {
+        System.out.println(e.getMessage());
+       }
 
-        c.setCustomerNumber(122);
-        c.setCustomerName("Shaad Bhuiyan Saad");
-        c.setCustomerBalance(5000);
-        c.Deposite(2000);
-        c.withdraw(5000);
+       try
+       {
+         c.withdraw(5000);
+       }
+       catch(InsufficientBalanceException e)
+       {
+        System.err.println(e.getMessage());
+       }
+
         c.display();
 
 
@@ -15,18 +26,15 @@ public class driver
     
       
 
-        person e = new employee();
-        e.employeeName="Sakib Khan";
-        e.employeeRole="Accountant";
-        e.display(); 
-
+        person e = new employee("Sakib","Acountant");
+        e.display();
+        
         // Saad er account theke Arif er account e transfer korar jonno transaction class erf object create 
         System.out.println("--- Transaction Start ---");
         
         // Arekta notun customer (jar kache taka jabe)
-        Customer receiver = new Customer();
-        receiver.setCustomerName("Arif Rahman");
-        receiver.setCustomerBalance(1000);
+        Customer receiver = new Customer(100,"Alif",3000);
+        
 
         // Transaction logic use kora
         Transaction t = new Transaction();
