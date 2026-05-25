@@ -1,25 +1,38 @@
 
  class Customer extends person
 {
+
+    public Customer(int AccountNumber,String AccountHolder,double balance) {
+        super(AccountNumber, AccountHolder, balance);
+    }
+    
     
 
-    void Deposite(double amount)
+    void Deposite(double amount) throws InsufficientBalanceException
     {
         if(amount>=0)
         {
-           setCustomerBalance(getBalance() + amount);
-        }
-    }
-
-
-    void withdraw(double amount){
-        if(amount >0 && amount <=getBalance())
-        {
-            setCustomerBalance(getBalance() - amount);
+            updateBalance(amount);
+          
         }
         else
         {
-            System.out.println(" Balance");
+            throw new InsufficientBalanceException("Isufficient Balance");
+        }
+       
+    }
+
+
+    void withdraw(double amount) throws InsufficientBalanceException{
+        if(amount >0 && amount <=getBalance())
+        {
+            deductBalance(amount);
+            
+        }
+        else
+        {
+        
+           throw new InsufficientBalanceException(" Insufficent Balance");
         }
     }
 
