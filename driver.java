@@ -71,7 +71,24 @@ public class driver {
         transPanel.add(new JLabel("Amount:")); transPanel.add(tAmtIn);
         transPanel.add(new JLabel("")); transPanel.add(sendBtn);
 
-        // --- SECTION 5: AUDIT LOGS ---
+        // --- SECTION 5: LOAN MANAGEMENT ---
+        JPanel loanPanel = createStyledPanel("Loan Management", new Color(155, 89, 182));
+        JComboBox<String> loanUser = new JComboBox<>();
+        JTextField loanAmount = new JTextField();
+        JButton applyLoanBtn = new JButton("Apply Loan");
+        JButton viewLoanBtn = new JButton("View Loan");
+        styleButton(applyLoanBtn, new Color(142, 68, 173));
+        styleButton(viewLoanBtn, new Color(123, 31, 162));
+        loanPanel.add(new JLabel("Customer:"));
+        loanPanel.add(loanUser);
+
+        loanPanel.add(new JLabel("Loan Amount:"));
+        loanPanel.add(loanAmount);
+
+        loanPanel.add(applyLoanBtn);
+        loanPanel.add(viewLoanBtn);
+
+        // --- SECTION 6: AUDIT LOGS ---
         JTextArea logArea = new JTextArea(12, 80);
         logArea.setEditable(false);
         logArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
@@ -91,6 +108,7 @@ public class driver {
                 userCombo.addItem(c.getCustomerName());
                 sCombo.addItem(c.getCustomerName());
                 rCombo.addItem(c.getCustomerName());
+                loanUser.addItem(c.getCustomerName());
                 logArea.append("[" + activeStaff.employeeName + "] Registered Customer: " + c.getCustomerName() + "\n");
                 nIn.setText(""); aIn.setText(""); bIn.setText("");
             } catch (Exception ex) { JOptionPane.showMessageDialog(frame, "Input Error!"); }
@@ -150,9 +168,39 @@ public class driver {
             for(String line : s.getHistory()) hist += line + "\n";
             JOptionPane.showMessageDialog(frame, new JScrollPane(new JTextArea(hist, 15, 35)));
         });
+        
+        // Apply Loan Logic
+        applyLoanBtn.addActionListener(e -> {
+            try {
+            Customer customer = customers.get(loanUser.getSelectedIndex());
+            double amount = Double.parseDouble(loanAmount.getText());
+            Loan loan = new Loan((int)(Math.random() * 1000), amount,10.0);
+            loan.approveLoan();
+            customer.applyLoan(loan);
+            customer.Deposite(amount);
+            logArea.append( "[" + activeStaff.employeeName + "] LOAN APPROVED:" +amount +" for " +customer.getCustomerName() +"\n");
+            loanAmount.setText("");
+            JOptionPane.showMessageDialog(frame, "Loan Approved Successfully!");}
+            catch(Exception ex) {
+            JOptionPane.showMessageDialog(frame,ex.getMessage());}
+
+        });
+
+        // View Loan Logic
+        viewLoanBtn.addActionListener(e -> {
+            try {Customer customer =customers.get(loanUser.getSelectedIndex());
+            if(customer.getLoan() == null) {
+            JOptionPane.showMessageDialog(frame,"No Loan Found");
+            return;}
+            JOptionPane.showMessageDialog(frame,customer.getLoan().getLoanInfo());
+            }
+            catch(Exception ex) {
+            JOptionPane.showMessageDialog(frame,ex.getMessage());
+            }
+        });
 
         // Assembly
-        frame.add(regPanel); frame.add(mgtPanel); frame.add(transPanel);
+        frame.add(regPanel); frame.add(mgtPanel); frame.add(transPanel); frame.add(loanPanel);
         frame.add(scroll); frame.add(historyBtn);
         frame.setVisible(true);
     }

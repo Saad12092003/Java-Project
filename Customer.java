@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 class Customer extends person {
+
     private ArrayList<String> history = new ArrayList<>();
+
+    private Loan loan;
 
     public Customer(int AccountNumber, String AccountHolder, double balance) {
 
@@ -13,9 +16,12 @@ class Customer extends person {
     void Deposite(double amount) throws InsufficientBalanceException {
 
         if (amount > 0) {
+
             updateBalance(amount);
 
-         history.add("Deposited: " + amount + " | Current Balance: " + getBalance());
+            history.add("Deposited: " + amount +
+                    " | Current Balance: " + getBalance());
+
         } else {
 
             throw new InsufficientBalanceException("Invalid Deposit Amount");
@@ -23,14 +29,18 @@ class Customer extends person {
     }
 
     void withdraw(double amount) throws InsufficientBalanceException {
+
         if (amount > 0 && amount <= getBalance()) {
 
             deductBalance(amount);
 
-            history.add("Withdrawn: " + amount + " | Current Balance: " + getBalance());
+            history.add("Withdrawn: " + amount +
+                    " | Current Balance: " + getBalance());
+
         } else {
 
-            throw new InsufficientBalanceException("Insufficient Balance or Invalid Amount");
+            throw new InsufficientBalanceException(
+                    "Insufficient Balance or Invalid Amount");
         }
     }
 
@@ -39,13 +49,32 @@ class Customer extends person {
         return history;
     }
 
-    // Transfer er jonno alada history record
+    public void applyLoan(Loan loan) {
+
+        this.loan = loan;
+
+        history.add("Loan Approved: " + loan.getLoanAmount());
+    }
+
+    public Loan getLoan() {
+
+        return loan;
+    }
+   // Transfer er jonno alada history record
+
     public void addTransferHistory(String note) {
 
         history.add(note);
     }
 
     void display() {
-        System.out.println("Acount Number : " + getNumber() + " | Name: " + getCustomerName() + " | Bal: " + getBalance());
+
+        System.out.println(
+                "Acount Number : " +
+                getNumber() +
+                " | Name: " +
+                getCustomerName() +
+                " | Balance: " +
+                getBalance());
     }
 }
