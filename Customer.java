@@ -19,8 +19,7 @@ class Customer extends person {
 
             updateBalance(amount);
 
-            history.add("Deposited: " + amount +
-                    " | Current Balance: " + getBalance());
+            history.add("Deposited: " + amount +  " | Current Balance: " + getBalance());
 
         } else {
 
@@ -34,13 +33,11 @@ class Customer extends person {
 
             deductBalance(amount);
 
-            history.add("Withdrawn: " + amount +
-                    " | Current Balance: " + getBalance());
+            history.add("Withdrawn: " + amount + " | Current Balance: " + getBalance());
 
         } else {
 
-            throw new InsufficientBalanceException(
-                    "Insufficient Balance or Invalid Amount");
+            throw new InsufficientBalanceException(  "Insufficient Balance");
         }
     }
 
@@ -60,7 +57,7 @@ class Customer extends person {
 
         return loan;
     }
-   // Transfer er jonno alada history record
+
 
     public void addTransferHistory(String note) {
 
@@ -69,12 +66,6 @@ class Customer extends person {
 
     void display() {
 
-        System.out.println(
-                "Acount Number : " +
-                getNumber() +
-                " | Name: " +
-                getCustomerName() +
-                " | Balance: " +
-                getBalance());
+        System.out.println(  "Acount Number : " + getNumber() + " | Name: " + getCustomerName() + " | Balance: " + getBalance());
     }
 }

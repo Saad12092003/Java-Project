@@ -1,13 +1,30 @@
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.ArrayList;
-import javax.swing.*;
-import javax.swing.border.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
 public class driver {
     private static ArrayList<Customer> customers = new ArrayList<>();
     
     // Feature: Employee Info via Inheritance (Super Class Person)
-    public static employee activeStaff = new employee("Abir Hasan", "Senior Branch Teller");
+    public static employee activeStaff = new employee("Abir Hasan", "Senior Account Officer");
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("CSE282.6 Java project");
@@ -122,7 +139,9 @@ public class driver {
                 s.Deposite(val);
                 logArea.append("[" + activeStaff.employeeName + "] DEPOSIT: $" + val + " to " + s.getCustomerName() + "\n");
                 amtIn.setText("");
-            } catch (Exception ex) { }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, ex.getMessage());
+             }
         });
 
         // Withdraw Logic (Fixed)
