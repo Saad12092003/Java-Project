@@ -17,7 +17,7 @@ class Customer extends person {
 
         if (amount > 0) {
 
-            updateBalance(amount);
+            setBalance(getBalance()+amount);
 
             history.add("Deposited: " + amount +  " | Current Balance: " + getBalance());
 
@@ -31,7 +31,7 @@ class Customer extends person {
 
         if (amount > 0 && amount <= getBalance()) {
 
-            deductBalance(amount);
+            setBalance(getBalance()-amount);
 
             history.add("Withdrawn: " + amount + " | Current Balance: " + getBalance());
 

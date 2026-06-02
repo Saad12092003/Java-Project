@@ -33,14 +33,9 @@
         return this.balance;
     }
 
-    void updateBalance(double amount)
+    void setBalance(double balance)
     {
-        balance += amount;
-    }
-
-     void deductBalance(double amount)
-    {
-        balance -= amount;
+        this.balance=balance;
     }
 
      abstract void display();

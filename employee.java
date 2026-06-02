@@ -1,8 +1,8 @@
 public class employee extends person
 {
 
-    public employee(String employeeName,String employeeRone) {
-        super(employeeName, employeeRone);
+    public employee(String employeeName,String employeeRole) {
+        super(employeeName, employeeRole);
     }
      
 
