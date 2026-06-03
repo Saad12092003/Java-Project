@@ -8,8 +8,8 @@ public class employee extends person
 
 void display()
 {
-     System.err.println("Empolyer Name : "+ employeeName);
-     System.out.println("Position      : " + employeeRole);
+     System.err.println("Empolyer name : "+ employeeName);
+     System.out.println("position      : " + employeeRole);  //for displaying info
 
 }
 
