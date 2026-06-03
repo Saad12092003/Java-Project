@@ -8,9 +8,9 @@
 
             receiver.Deposite(amount);
 
-            System.out.println("Transfer Success!");
+            System.out.println("Congratulations!Transfer Success!");
 
-        } catch (InsufficientBalanceException e) {
+        } catch (InsufficientBalanceException e) {   //e exception object.error related info is stored in e
 
             System.out.println(e.getMessage());
         }
