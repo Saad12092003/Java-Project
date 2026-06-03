@@ -2,7 +2,8 @@ class InsufficientBalanceException extends Exception{
 
     public InsufficientBalanceException(String message) 
     {
-        super(message);
+          super(message);
+//          custom
     }
     
 }
